@@ -1,0 +1,1007 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="emlakModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="dükkan">
+          <Key>
+            <PropertyRef Name="dükkan_id" />
+          </Key>
+          <Property Name="dükkan_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dükkan_adı" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="dükkan_telno" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ev_sahibi">
+          <Key>
+            <PropertyRef Name="ev_sahibi_id" />
+          </Key>
+          <Property Name="ev_sahibi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="soyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefon" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="kira_kayıt">
+          <Key>
+            <PropertyRef Name="kira_kayıt_id" />
+          </Key>
+          <Property Name="kira_kayıt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ev_sahibi_id" Type="int" Nullable="false" />
+          <Property Name="kiralık_ev_id" Type="int" Nullable="false" />
+          <Property Name="temsilci_id" Type="int" Nullable="false" />
+          <Property Name="kiracı_id" Type="int" Nullable="false" />
+          <Property Name="kiralama_fiyatı" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="kiracı">
+          <Key>
+            <PropertyRef Name="kiracı_id" />
+          </Key>
+          <Property Name="kiracı_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="soyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="telno" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="kiralık_ev">
+          <Key>
+            <PropertyRef Name="kiralık_ev_id" />
+          </Key>
+          <Property Name="kiralık_ev_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sokak" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kapı_no" Type="int" Nullable="false" />
+          <Property Name="ada_parsel" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kat_sayısı" Type="int" Nullable="false" />
+          <Property Name="bulunduğu_kat" Type="int" Nullable="false" />
+          <Property Name="oda_sayısı" Type="int" Nullable="false" />
+          <Property Name="salon_sayısı" Type="int" Nullable="false" />
+          <Property Name="fiyat" Type="int" Nullable="false" />
+          <Property Name="kiracı_id" Type="int" Nullable="false" />
+          <Property Name="ev_sahibi_id" Type="int" Nullable="false" />
+          <Property Name="mahalle_id" Type="int" Nullable="false" />
+          <Property Name="temsilci_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mahalle">
+          <Key>
+            <PropertyRef Name="mahalle_id" />
+          </Key>
+          <Property Name="mahalle_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mahalle_ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="şehir_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="satılık_ev">
+          <Key>
+            <PropertyRef Name="satılık_ev_id" />
+          </Key>
+          <Property Name="satılık_ev_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sokak" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kapı_no" Type="int" Nullable="false" />
+          <Property Name="ada_parsel" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kat_sayısı" Type="int" Nullable="false" />
+          <Property Name="bulunduğu_kat" Type="int" Nullable="false" />
+          <Property Name="oda_sayısı" Type="int" Nullable="false" />
+          <Property Name="salon_sayısı" Type="int" Nullable="false" />
+          <Property Name="fiyat" Type="int" Nullable="false" />
+          <Property Name="ev_sahibi_id" Type="int" Nullable="false" />
+          <Property Name="mahalle_id" Type="int" Nullable="false" />
+          <Property Name="temsilci_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="satış_kaydı">
+          <Key>
+            <PropertyRef Name="kayıt_id" />
+          </Key>
+          <Property Name="kayıt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ev_sahibi_id" Type="int" Nullable="false" />
+          <Property Name="temsilci_id" Type="int" Nullable="false" />
+          <Property Name="satılık_ev_id" Type="int" Nullable="false" />
+          <Property Name="yeni_ev_sahibi_id" Type="int" Nullable="false" />
+          <Property Name="satış_fiyatı" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="şehir">
+          <Key>
+            <PropertyRef Name="şehir_id" />
+          </Key>
+          <Property Name="şehir_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="şehir_ismi" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="temsilci">
+          <Key>
+            <PropertyRef Name="temsilci_id" />
+          </Key>
+          <Property Name="temsilci_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="soyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="tel_no" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="dükkan_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="yeni_ev_sahibi">
+          <Key>
+            <PropertyRef Name="yeni_ev_sahibi_id" />
+          </Key>
+          <Property Name="yeni_ev_sahibi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adı" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="soyadı" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="telno" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_kira_kayıt_ev_sahibi">
+          <End Role="ev_sahibi" Type="Self.ev_sahibi" Multiplicity="1" />
+          <End Role="kira_kayıt" Type="Self.kira_kayıt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ev_sahibi">
+              <PropertyRef Name="ev_sahibi_id" />
+            </Principal>
+            <Dependent Role="kira_kayıt">
+              <PropertyRef Name="ev_sahibi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_kira_kayıt_kiracı">
+          <End Role="kiracı" Type="Self.kiracı" Multiplicity="1" />
+          <End Role="kira_kayıt" Type="Self.kira_kayıt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kiracı">
+              <PropertyRef Name="kiracı_id" />
+            </Principal>
+            <Dependent Role="kira_kayıt">
+              <PropertyRef Name="kiracı_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_kira_kayıt_kiralık_ev">
+          <End Role="kiralık_ev" Type="Self.kiralık_ev" Multiplicity="1" />
+          <End Role="kira_kayıt" Type="Self.kira_kayıt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kiralık_ev">
+              <PropertyRef Name="kiralık_ev_id" />
+            </Principal>
+            <Dependent Role="kira_kayıt">
+              <PropertyRef Name="kiralık_ev_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_kira_kayıt_temsilci">
+          <End Role="temsilci" Type="Self.temsilci" Multiplicity="1" />
+          <End Role="kira_kayıt" Type="Self.kira_kayıt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="temsilci">
+              <PropertyRef Name="temsilci_id" />
+            </Principal>
+            <Dependent Role="kira_kayıt">
+              <PropertyRef Name="temsilci_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_kiralık_ev_ev_sahibi">
+          <End Role="ev_sahibi" Type="Self.ev_sahibi" Multiplicity="1" />
+          <End Role="kiralık_ev" Type="Self.kiralık_ev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ev_sahibi">
+              <PropertyRef Name="ev_sahibi_id" />
+            </Principal>
+            <Dependent Role="kiralık_ev">
+              <PropertyRef Name="ev_sahibi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_kiralık_ev_mahalle">
+          <End Role="mahalle" Type="Self.mahalle" Multiplicity="1" />
+          <End Role="kiralık_ev" Type="Self.kiralık_ev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mahalle">
+              <PropertyRef Name="mahalle_id" />
+            </Principal>
+            <Dependent Role="kiralık_ev">
+              <PropertyRef Name="mahalle_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_kiralık_ev_temsilci">
+          <End Role="temsilci" Type="Self.temsilci" Multiplicity="1" />
+          <End Role="kiralık_ev" Type="Self.kiralık_ev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="temsilci">
+              <PropertyRef Name="temsilci_id" />
+            </Principal>
+            <Dependent Role="kiralık_ev">
+              <PropertyRef Name="temsilci_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_mahalle_şehir">
+          <End Role="şehir" Type="Self.şehir" Multiplicity="1" />
+          <End Role="mahalle" Type="Self.mahalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="şehir">
+              <PropertyRef Name="şehir_id" />
+            </Principal>
+            <Dependent Role="mahalle">
+              <PropertyRef Name="şehir_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_satılık_ev_ev_sahibi">
+          <End Role="ev_sahibi" Type="Self.ev_sahibi" Multiplicity="1" />
+          <End Role="satılık_ev" Type="Self.satılık_ev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ev_sahibi">
+              <PropertyRef Name="ev_sahibi_id" />
+            </Principal>
+            <Dependent Role="satılık_ev">
+              <PropertyRef Name="ev_sahibi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_satılık_ev_mahalle">
+          <End Role="mahalle" Type="Self.mahalle" Multiplicity="1" />
+          <End Role="satılık_ev" Type="Self.satılık_ev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mahalle">
+              <PropertyRef Name="mahalle_id" />
+            </Principal>
+            <Dependent Role="satılık_ev">
+              <PropertyRef Name="mahalle_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_satılık_ev_temsilci">
+          <End Role="temsilci" Type="Self.temsilci" Multiplicity="1" />
+          <End Role="satılık_ev" Type="Self.satılık_ev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="temsilci">
+              <PropertyRef Name="temsilci_id" />
+            </Principal>
+            <Dependent Role="satılık_ev">
+              <PropertyRef Name="temsilci_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_satış_kaydı_ev_sahibi">
+          <End Role="ev_sahibi" Type="Self.ev_sahibi" Multiplicity="1" />
+          <End Role="satış_kaydı" Type="Self.satış_kaydı" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ev_sahibi">
+              <PropertyRef Name="ev_sahibi_id" />
+            </Principal>
+            <Dependent Role="satış_kaydı">
+              <PropertyRef Name="ev_sahibi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_satış_kaydı_satılık_ev">
+          <End Role="satılık_ev" Type="Self.satılık_ev" Multiplicity="1" />
+          <End Role="satış_kaydı" Type="Self.satış_kaydı" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="satılık_ev">
+              <PropertyRef Name="satılık_ev_id" />
+            </Principal>
+            <Dependent Role="satış_kaydı">
+              <PropertyRef Name="satılık_ev_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_satış_kaydı_temsilci">
+          <End Role="temsilci" Type="Self.temsilci" Multiplicity="1" />
+          <End Role="satış_kaydı" Type="Self.satış_kaydı" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="temsilci">
+              <PropertyRef Name="temsilci_id" />
+            </Principal>
+            <Dependent Role="satış_kaydı">
+              <PropertyRef Name="temsilci_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_satış_kaydı_yeni_ev_sahibi">
+          <End Role="yeni_ev_sahibi" Type="Self.yeni_ev_sahibi" Multiplicity="1" />
+          <End Role="satış_kaydı" Type="Self.satış_kaydı" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="yeni_ev_sahibi">
+              <PropertyRef Name="yeni_ev_sahibi_id" />
+            </Principal>
+            <Dependent Role="satış_kaydı">
+              <PropertyRef Name="yeni_ev_sahibi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_temsilci_dükkan">
+          <End Role="dükkan" Type="Self.dükkan" Multiplicity="1" />
+          <End Role="temsilci" Type="Self.temsilci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dükkan">
+              <PropertyRef Name="dükkan_id" />
+            </Principal>
+            <Dependent Role="temsilci">
+              <PropertyRef Name="dükkan_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="emlakModelStoreContainer">
+          <EntitySet Name="dükkan" EntityType="Self.dükkan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ev_sahibi" EntityType="Self.ev_sahibi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="kira_kayıt" EntityType="Self.kira_kayıt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="kiracı" EntityType="Self.kiracı" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="kiralık_ev" EntityType="Self.kiralık_ev" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mahalle" EntityType="Self.mahalle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="satılık_ev" EntityType="Self.satılık_ev" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="satış_kaydı" EntityType="Self.satış_kaydı" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="şehir" EntityType="Self.şehir" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="temsilci" EntityType="Self.temsilci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="yeni_ev_sahibi" EntityType="Self.yeni_ev_sahibi" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_kira_kayıt_ev_sahibi" Association="Self.FK_kira_kayıt_ev_sahibi">
+            <End Role="ev_sahibi" EntitySet="ev_sahibi" />
+            <End Role="kira_kayıt" EntitySet="kira_kayıt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_kira_kayıt_kiracı" Association="Self.FK_kira_kayıt_kiracı">
+            <End Role="kiracı" EntitySet="kiracı" />
+            <End Role="kira_kayıt" EntitySet="kira_kayıt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_kira_kayıt_kiralık_ev" Association="Self.FK_kira_kayıt_kiralık_ev">
+            <End Role="kiralık_ev" EntitySet="kiralık_ev" />
+            <End Role="kira_kayıt" EntitySet="kira_kayıt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_kira_kayıt_temsilci" Association="Self.FK_kira_kayıt_temsilci">
+            <End Role="temsilci" EntitySet="temsilci" />
+            <End Role="kira_kayıt" EntitySet="kira_kayıt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_kiralık_ev_ev_sahibi" Association="Self.FK_kiralık_ev_ev_sahibi">
+            <End Role="ev_sahibi" EntitySet="ev_sahibi" />
+            <End Role="kiralık_ev" EntitySet="kiralık_ev" />
+          </AssociationSet>
+          <AssociationSet Name="FK_kiralık_ev_mahalle" Association="Self.FK_kiralık_ev_mahalle">
+            <End Role="mahalle" EntitySet="mahalle" />
+            <End Role="kiralık_ev" EntitySet="kiralık_ev" />
+          </AssociationSet>
+          <AssociationSet Name="FK_kiralık_ev_temsilci" Association="Self.FK_kiralık_ev_temsilci">
+            <End Role="temsilci" EntitySet="temsilci" />
+            <End Role="kiralık_ev" EntitySet="kiralık_ev" />
+          </AssociationSet>
+          <AssociationSet Name="FK_mahalle_şehir" Association="Self.FK_mahalle_şehir">
+            <End Role="şehir" EntitySet="şehir" />
+            <End Role="mahalle" EntitySet="mahalle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_satılık_ev_ev_sahibi" Association="Self.FK_satılık_ev_ev_sahibi">
+            <End Role="ev_sahibi" EntitySet="ev_sahibi" />
+            <End Role="satılık_ev" EntitySet="satılık_ev" />
+          </AssociationSet>
+          <AssociationSet Name="FK_satılık_ev_mahalle" Association="Self.FK_satılık_ev_mahalle">
+            <End Role="mahalle" EntitySet="mahalle" />
+            <End Role="satılık_ev" EntitySet="satılık_ev" />
+          </AssociationSet>
+          <AssociationSet Name="FK_satılık_ev_temsilci" Association="Self.FK_satılık_ev_temsilci">
+            <End Role="temsilci" EntitySet="temsilci" />
+            <End Role="satılık_ev" EntitySet="satılık_ev" />
+          </AssociationSet>
+          <AssociationSet Name="FK_satış_kaydı_ev_sahibi" Association="Self.FK_satış_kaydı_ev_sahibi">
+            <End Role="ev_sahibi" EntitySet="ev_sahibi" />
+            <End Role="satış_kaydı" EntitySet="satış_kaydı" />
+          </AssociationSet>
+          <AssociationSet Name="FK_satış_kaydı_satılık_ev" Association="Self.FK_satış_kaydı_satılık_ev">
+            <End Role="satılık_ev" EntitySet="satılık_ev" />
+            <End Role="satış_kaydı" EntitySet="satış_kaydı" />
+          </AssociationSet>
+          <AssociationSet Name="FK_satış_kaydı_temsilci" Association="Self.FK_satış_kaydı_temsilci">
+            <End Role="temsilci" EntitySet="temsilci" />
+            <End Role="satış_kaydı" EntitySet="satış_kaydı" />
+          </AssociationSet>
+          <AssociationSet Name="FK_satış_kaydı_yeni_ev_sahibi" Association="Self.FK_satış_kaydı_yeni_ev_sahibi">
+            <End Role="yeni_ev_sahibi" EntitySet="yeni_ev_sahibi" />
+            <End Role="satış_kaydı" EntitySet="satış_kaydı" />
+          </AssociationSet>
+          <AssociationSet Name="FK_temsilci_dükkan" Association="Self.FK_temsilci_dükkan">
+            <End Role="dükkan" EntitySet="dükkan" />
+            <End Role="temsilci" EntitySet="temsilci" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="emlakModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="dükkan">
+          <Key>
+            <PropertyRef Name="dükkan_id" />
+          </Key>
+          <Property Name="dükkan_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dükkan_adı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dükkan_telno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="temsilci" Relationship="Self.FK_temsilci_dükkan" FromRole="dükkan" ToRole="temsilci" />
+        </EntityType>
+        <EntityType Name="ev_sahibi">
+          <Key>
+            <PropertyRef Name="ev_sahibi_id" />
+          </Key>
+          <Property Name="ev_sahibi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="kira_kayıt" Relationship="Self.FK_kira_kayıt_ev_sahibi" FromRole="ev_sahibi" ToRole="kira_kayıt" />
+          <NavigationProperty Name="kiralık_ev" Relationship="Self.FK_kiralık_ev_ev_sahibi" FromRole="ev_sahibi" ToRole="kiralık_ev" />
+          <NavigationProperty Name="satılık_ev" Relationship="Self.FK_satılık_ev_ev_sahibi" FromRole="ev_sahibi" ToRole="satılık_ev" />
+          <NavigationProperty Name="satış_kaydı" Relationship="Self.FK_satış_kaydı_ev_sahibi" FromRole="ev_sahibi" ToRole="satış_kaydı" />
+        </EntityType>
+        <EntityType Name="kira_kayıt">
+          <Key>
+            <PropertyRef Name="kira_kayıt_id" />
+          </Key>
+          <Property Name="kira_kayıt_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ev_sahibi_id" Type="Int32" Nullable="false" />
+          <Property Name="kiralık_ev_id" Type="Int32" Nullable="false" />
+          <Property Name="temsilci_id" Type="Int32" Nullable="false" />
+          <Property Name="kiracı_id" Type="Int32" Nullable="false" />
+          <Property Name="kiralama_fiyatı" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ev_sahibi" Relationship="Self.FK_kira_kayıt_ev_sahibi" FromRole="kira_kayıt" ToRole="ev_sahibi" />
+          <NavigationProperty Name="kiracı" Relationship="Self.FK_kira_kayıt_kiracı" FromRole="kira_kayıt" ToRole="kiracı" />
+          <NavigationProperty Name="kiralık_ev" Relationship="Self.FK_kira_kayıt_kiralık_ev" FromRole="kira_kayıt" ToRole="kiralık_ev" />
+          <NavigationProperty Name="temsilci" Relationship="Self.FK_kira_kayıt_temsilci" FromRole="kira_kayıt" ToRole="temsilci" />
+        </EntityType>
+        <EntityType Name="kiracı">
+          <Key>
+            <PropertyRef Name="kiracı_id" />
+          </Key>
+          <Property Name="kiracı_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="telno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="kira_kayıt" Relationship="Self.FK_kira_kayıt_kiracı" FromRole="kiracı" ToRole="kira_kayıt" />
+        </EntityType>
+        <EntityType Name="kiralık_ev">
+          <Key>
+            <PropertyRef Name="kiralık_ev_id" />
+          </Key>
+          <Property Name="kiralık_ev_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sokak" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kapı_no" Type="Int32" Nullable="false" />
+          <Property Name="ada_parsel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kat_sayısı" Type="Int32" Nullable="false" />
+          <Property Name="bulunduğu_kat" Type="Int32" Nullable="false" />
+          <Property Name="oda_sayısı" Type="Int32" Nullable="false" />
+          <Property Name="salon_sayısı" Type="Int32" Nullable="false" />
+          <Property Name="fiyat" Type="Int32" Nullable="false" />
+          <Property Name="kiracı_id" Type="Int32" Nullable="false" />
+          <Property Name="ev_sahibi_id" Type="Int32" Nullable="false" />
+          <Property Name="mahalle_id" Type="Int32" Nullable="false" />
+          <Property Name="temsilci_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ev_sahibi" Relationship="Self.FK_kiralık_ev_ev_sahibi" FromRole="kiralık_ev" ToRole="ev_sahibi" />
+          <NavigationProperty Name="kira_kayıt" Relationship="Self.FK_kira_kayıt_kiralık_ev" FromRole="kiralık_ev" ToRole="kira_kayıt" />
+          <NavigationProperty Name="mahalle" Relationship="Self.FK_kiralık_ev_mahalle" FromRole="kiralık_ev" ToRole="mahalle" />
+          <NavigationProperty Name="temsilci" Relationship="Self.FK_kiralık_ev_temsilci" FromRole="kiralık_ev" ToRole="temsilci" />
+        </EntityType>
+        <EntityType Name="mahalle">
+          <Key>
+            <PropertyRef Name="mahalle_id" />
+          </Key>
+          <Property Name="mahalle_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mahalle_ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="şehir_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="kiralık_ev" Relationship="Self.FK_kiralık_ev_mahalle" FromRole="mahalle" ToRole="kiralık_ev" />
+          <NavigationProperty Name="şehir" Relationship="Self.FK_mahalle_şehir" FromRole="mahalle" ToRole="şehir" />
+          <NavigationProperty Name="satılık_ev" Relationship="Self.FK_satılık_ev_mahalle" FromRole="mahalle" ToRole="satılık_ev" />
+        </EntityType>
+        <EntityType Name="satılık_ev">
+          <Key>
+            <PropertyRef Name="satılık_ev_id" />
+          </Key>
+          <Property Name="satılık_ev_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sokak" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kapı_no" Type="Int32" Nullable="false" />
+          <Property Name="ada_parsel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kat_sayısı" Type="Int32" Nullable="false" />
+          <Property Name="bulunduğu_kat" Type="Int32" Nullable="false" />
+          <Property Name="oda_sayısı" Type="Int32" Nullable="false" />
+          <Property Name="salon_sayısı" Type="Int32" Nullable="false" />
+          <Property Name="fiyat" Type="Int32" Nullable="false" />
+          <Property Name="ev_sahibi_id" Type="Int32" Nullable="false" />
+          <Property Name="mahalle_id" Type="Int32" Nullable="false" />
+          <Property Name="temsilci_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ev_sahibi" Relationship="Self.FK_satılık_ev_ev_sahibi" FromRole="satılık_ev" ToRole="ev_sahibi" />
+          <NavigationProperty Name="mahalle" Relationship="Self.FK_satılık_ev_mahalle" FromRole="satılık_ev" ToRole="mahalle" />
+          <NavigationProperty Name="temsilci" Relationship="Self.FK_satılık_ev_temsilci" FromRole="satılık_ev" ToRole="temsilci" />
+          <NavigationProperty Name="satış_kaydı" Relationship="Self.FK_satış_kaydı_satılık_ev" FromRole="satılık_ev" ToRole="satış_kaydı" />
+        </EntityType>
+        <EntityType Name="satış_kaydı">
+          <Key>
+            <PropertyRef Name="kayıt_id" />
+          </Key>
+          <Property Name="kayıt_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ev_sahibi_id" Type="Int32" Nullable="false" />
+          <Property Name="temsilci_id" Type="Int32" Nullable="false" />
+          <Property Name="satılık_ev_id" Type="Int32" Nullable="false" />
+          <Property Name="yeni_ev_sahibi_id" Type="Int32" Nullable="false" />
+          <Property Name="satış_fiyatı" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ev_sahibi" Relationship="Self.FK_satış_kaydı_ev_sahibi" FromRole="satış_kaydı" ToRole="ev_sahibi" />
+          <NavigationProperty Name="satılık_ev" Relationship="Self.FK_satış_kaydı_satılık_ev" FromRole="satış_kaydı" ToRole="satılık_ev" />
+          <NavigationProperty Name="temsilci" Relationship="Self.FK_satış_kaydı_temsilci" FromRole="satış_kaydı" ToRole="temsilci" />
+          <NavigationProperty Name="yeni_ev_sahibi" Relationship="Self.FK_satış_kaydı_yeni_ev_sahibi" FromRole="satış_kaydı" ToRole="yeni_ev_sahibi" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="şehir">
+          <Key>
+            <PropertyRef Name="şehir_id" />
+          </Key>
+          <Property Name="şehir_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="şehir_ismi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="mahalle" Relationship="Self.FK_mahalle_şehir" FromRole="şehir" ToRole="mahalle" />
+        </EntityType>
+        <EntityType Name="temsilci">
+          <Key>
+            <PropertyRef Name="temsilci_id" />
+          </Key>
+          <Property Name="temsilci_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tel_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dükkan_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="dükkan" Relationship="Self.FK_temsilci_dükkan" FromRole="temsilci" ToRole="dükkan" />
+          <NavigationProperty Name="kira_kayıt" Relationship="Self.FK_kira_kayıt_temsilci" FromRole="temsilci" ToRole="kira_kayıt" />
+          <NavigationProperty Name="kiralık_ev" Relationship="Self.FK_kiralık_ev_temsilci" FromRole="temsilci" ToRole="kiralık_ev" />
+          <NavigationProperty Name="satılık_ev" Relationship="Self.FK_satılık_ev_temsilci" FromRole="temsilci" ToRole="satılık_ev" />
+          <NavigationProperty Name="satış_kaydı" Relationship="Self.FK_satış_kaydı_temsilci" FromRole="temsilci" ToRole="satış_kaydı" />
+        </EntityType>
+        <EntityType Name="yeni_ev_sahibi">
+          <Key>
+            <PropertyRef Name="yeni_ev_sahibi_id" />
+          </Key>
+          <Property Name="yeni_ev_sahibi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="soyadı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="telno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="satış_kaydı" Relationship="Self.FK_satış_kaydı_yeni_ev_sahibi" FromRole="yeni_ev_sahibi" ToRole="satış_kaydı" />
+        </EntityType>
+        <Association Name="FK_temsilci_dükkan">
+          <End Role="dükkan" Type="Self.dükkan" Multiplicity="1" />
+          <End Role="temsilci" Type="Self.temsilci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dükkan">
+              <PropertyRef Name="dükkan_id" />
+            </Principal>
+            <Dependent Role="temsilci">
+              <PropertyRef Name="dükkan_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_kira_kayıt_ev_sahibi">
+          <End Role="ev_sahibi" Type="Self.ev_sahibi" Multiplicity="1" />
+          <End Role="kira_kayıt" Type="Self.kira_kayıt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ev_sahibi">
+              <PropertyRef Name="ev_sahibi_id" />
+            </Principal>
+            <Dependent Role="kira_kayıt">
+              <PropertyRef Name="ev_sahibi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_kiralık_ev_ev_sahibi">
+          <End Role="ev_sahibi" Type="Self.ev_sahibi" Multiplicity="1" />
+          <End Role="kiralık_ev" Type="Self.kiralık_ev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ev_sahibi">
+              <PropertyRef Name="ev_sahibi_id" />
+            </Principal>
+            <Dependent Role="kiralık_ev">
+              <PropertyRef Name="ev_sahibi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_satılık_ev_ev_sahibi">
+          <End Role="ev_sahibi" Type="Self.ev_sahibi" Multiplicity="1" />
+          <End Role="satılık_ev" Type="Self.satılık_ev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ev_sahibi">
+              <PropertyRef Name="ev_sahibi_id" />
+            </Principal>
+            <Dependent Role="satılık_ev">
+              <PropertyRef Name="ev_sahibi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_satış_kaydı_ev_sahibi">
+          <End Role="ev_sahibi" Type="Self.ev_sahibi" Multiplicity="1" />
+          <End Role="satış_kaydı" Type="Self.satış_kaydı" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ev_sahibi">
+              <PropertyRef Name="ev_sahibi_id" />
+            </Principal>
+            <Dependent Role="satış_kaydı">
+              <PropertyRef Name="ev_sahibi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_kira_kayıt_kiracı">
+          <End Role="kiracı" Type="Self.kiracı" Multiplicity="1" />
+          <End Role="kira_kayıt" Type="Self.kira_kayıt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kiracı">
+              <PropertyRef Name="kiracı_id" />
+            </Principal>
+            <Dependent Role="kira_kayıt">
+              <PropertyRef Name="kiracı_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_kira_kayıt_kiralık_ev">
+          <End Role="kiralık_ev" Type="Self.kiralık_ev" Multiplicity="1" />
+          <End Role="kira_kayıt" Type="Self.kira_kayıt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kiralık_ev">
+              <PropertyRef Name="kiralık_ev_id" />
+            </Principal>
+            <Dependent Role="kira_kayıt">
+              <PropertyRef Name="kiralık_ev_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_kira_kayıt_temsilci">
+          <End Role="temsilci" Type="Self.temsilci" Multiplicity="1" />
+          <End Role="kira_kayıt" Type="Self.kira_kayıt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="temsilci">
+              <PropertyRef Name="temsilci_id" />
+            </Principal>
+            <Dependent Role="kira_kayıt">
+              <PropertyRef Name="temsilci_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_kiralık_ev_mahalle">
+          <End Role="mahalle" Type="Self.mahalle" Multiplicity="1" />
+          <End Role="kiralık_ev" Type="Self.kiralık_ev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mahalle">
+              <PropertyRef Name="mahalle_id" />
+            </Principal>
+            <Dependent Role="kiralık_ev">
+              <PropertyRef Name="mahalle_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_kiralık_ev_temsilci">
+          <End Role="temsilci" Type="Self.temsilci" Multiplicity="1" />
+          <End Role="kiralık_ev" Type="Self.kiralık_ev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="temsilci">
+              <PropertyRef Name="temsilci_id" />
+            </Principal>
+            <Dependent Role="kiralık_ev">
+              <PropertyRef Name="temsilci_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_mahalle_şehir">
+          <End Role="şehir" Type="Self.şehir" Multiplicity="1" />
+          <End Role="mahalle" Type="Self.mahalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="şehir">
+              <PropertyRef Name="şehir_id" />
+            </Principal>
+            <Dependent Role="mahalle">
+              <PropertyRef Name="şehir_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_satılık_ev_mahalle">
+          <End Role="mahalle" Type="Self.mahalle" Multiplicity="1" />
+          <End Role="satılık_ev" Type="Self.satılık_ev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mahalle">
+              <PropertyRef Name="mahalle_id" />
+            </Principal>
+            <Dependent Role="satılık_ev">
+              <PropertyRef Name="mahalle_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_satılık_ev_temsilci">
+          <End Role="temsilci" Type="Self.temsilci" Multiplicity="1" />
+          <End Role="satılık_ev" Type="Self.satılık_ev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="temsilci">
+              <PropertyRef Name="temsilci_id" />
+            </Principal>
+            <Dependent Role="satılık_ev">
+              <PropertyRef Name="temsilci_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_satış_kaydı_satılık_ev">
+          <End Role="satılık_ev" Type="Self.satılık_ev" Multiplicity="1" />
+          <End Role="satış_kaydı" Type="Self.satış_kaydı" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="satılık_ev">
+              <PropertyRef Name="satılık_ev_id" />
+            </Principal>
+            <Dependent Role="satış_kaydı">
+              <PropertyRef Name="satılık_ev_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_satış_kaydı_temsilci">
+          <End Role="temsilci" Type="Self.temsilci" Multiplicity="1" />
+          <End Role="satış_kaydı" Type="Self.satış_kaydı" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="temsilci">
+              <PropertyRef Name="temsilci_id" />
+            </Principal>
+            <Dependent Role="satış_kaydı">
+              <PropertyRef Name="temsilci_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_satış_kaydı_yeni_ev_sahibi">
+          <End Role="yeni_ev_sahibi" Type="Self.yeni_ev_sahibi" Multiplicity="1" />
+          <End Role="satış_kaydı" Type="Self.satış_kaydı" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="yeni_ev_sahibi">
+              <PropertyRef Name="yeni_ev_sahibi_id" />
+            </Principal>
+            <Dependent Role="satış_kaydı">
+              <PropertyRef Name="yeni_ev_sahibi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="emlakEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="dükkan" EntityType="Self.dükkan" />
+          <EntitySet Name="ev_sahibi" EntityType="Self.ev_sahibi" />
+          <EntitySet Name="kira_kayıt" EntityType="Self.kira_kayıt" />
+          <EntitySet Name="kiracı" EntityType="Self.kiracı" />
+          <EntitySet Name="kiralık_ev" EntityType="Self.kiralık_ev" />
+          <EntitySet Name="mahalle" EntityType="Self.mahalle" />
+          <EntitySet Name="satılık_ev" EntityType="Self.satılık_ev" />
+          <EntitySet Name="satış_kaydı" EntityType="Self.satış_kaydı" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="şehir" EntityType="Self.şehir" />
+          <EntitySet Name="temsilci" EntityType="Self.temsilci" />
+          <EntitySet Name="yeni_ev_sahibi" EntityType="Self.yeni_ev_sahibi" />
+          <AssociationSet Name="FK_temsilci_dükkan" Association="Self.FK_temsilci_dükkan">
+            <End Role="dükkan" EntitySet="dükkan" />
+            <End Role="temsilci" EntitySet="temsilci" />
+          </AssociationSet>
+          <AssociationSet Name="FK_kira_kayıt_ev_sahibi" Association="Self.FK_kira_kayıt_ev_sahibi">
+            <End Role="ev_sahibi" EntitySet="ev_sahibi" />
+            <End Role="kira_kayıt" EntitySet="kira_kayıt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_kiralık_ev_ev_sahibi" Association="Self.FK_kiralık_ev_ev_sahibi">
+            <End Role="ev_sahibi" EntitySet="ev_sahibi" />
+            <End Role="kiralık_ev" EntitySet="kiralık_ev" />
+          </AssociationSet>
+          <AssociationSet Name="FK_satılık_ev_ev_sahibi" Association="Self.FK_satılık_ev_ev_sahibi">
+            <End Role="ev_sahibi" EntitySet="ev_sahibi" />
+            <End Role="satılık_ev" EntitySet="satılık_ev" />
+          </AssociationSet>
+          <AssociationSet Name="FK_satış_kaydı_ev_sahibi" Association="Self.FK_satış_kaydı_ev_sahibi">
+            <End Role="ev_sahibi" EntitySet="ev_sahibi" />
+            <End Role="satış_kaydı" EntitySet="satış_kaydı" />
+          </AssociationSet>
+          <AssociationSet Name="FK_kira_kayıt_kiracı" Association="Self.FK_kira_kayıt_kiracı">
+            <End Role="kiracı" EntitySet="kiracı" />
+            <End Role="kira_kayıt" EntitySet="kira_kayıt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_kira_kayıt_kiralık_ev" Association="Self.FK_kira_kayıt_kiralık_ev">
+            <End Role="kiralık_ev" EntitySet="kiralık_ev" />
+            <End Role="kira_kayıt" EntitySet="kira_kayıt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_kira_kayıt_temsilci" Association="Self.FK_kira_kayıt_temsilci">
+            <End Role="temsilci" EntitySet="temsilci" />
+            <End Role="kira_kayıt" EntitySet="kira_kayıt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_kiralık_ev_mahalle" Association="Self.FK_kiralık_ev_mahalle">
+            <End Role="mahalle" EntitySet="mahalle" />
+            <End Role="kiralık_ev" EntitySet="kiralık_ev" />
+          </AssociationSet>
+          <AssociationSet Name="FK_kiralık_ev_temsilci" Association="Self.FK_kiralık_ev_temsilci">
+            <End Role="temsilci" EntitySet="temsilci" />
+            <End Role="kiralık_ev" EntitySet="kiralık_ev" />
+          </AssociationSet>
+          <AssociationSet Name="FK_mahalle_şehir" Association="Self.FK_mahalle_şehir">
+            <End Role="şehir" EntitySet="şehir" />
+            <End Role="mahalle" EntitySet="mahalle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_satılık_ev_mahalle" Association="Self.FK_satılık_ev_mahalle">
+            <End Role="mahalle" EntitySet="mahalle" />
+            <End Role="satılık_ev" EntitySet="satılık_ev" />
+          </AssociationSet>
+          <AssociationSet Name="FK_satılık_ev_temsilci" Association="Self.FK_satılık_ev_temsilci">
+            <End Role="temsilci" EntitySet="temsilci" />
+            <End Role="satılık_ev" EntitySet="satılık_ev" />
+          </AssociationSet>
+          <AssociationSet Name="FK_satış_kaydı_satılık_ev" Association="Self.FK_satış_kaydı_satılık_ev">
+            <End Role="satılık_ev" EntitySet="satılık_ev" />
+            <End Role="satış_kaydı" EntitySet="satış_kaydı" />
+          </AssociationSet>
+          <AssociationSet Name="FK_satış_kaydı_temsilci" Association="Self.FK_satış_kaydı_temsilci">
+            <End Role="temsilci" EntitySet="temsilci" />
+            <End Role="satış_kaydı" EntitySet="satış_kaydı" />
+          </AssociationSet>
+          <AssociationSet Name="FK_satış_kaydı_yeni_ev_sahibi" Association="Self.FK_satış_kaydı_yeni_ev_sahibi">
+            <End Role="yeni_ev_sahibi" EntitySet="yeni_ev_sahibi" />
+            <End Role="satış_kaydı" EntitySet="satış_kaydı" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="emlakModelStoreContainer" CdmEntityContainer="emlakEntities">
+          <EntitySetMapping Name="dükkan">
+            <EntityTypeMapping TypeName="emlakModel.dükkan">
+              <MappingFragment StoreEntitySet="dükkan">
+                <ScalarProperty Name="dükkan_id" ColumnName="dükkan_id" />
+                <ScalarProperty Name="dükkan_adı" ColumnName="dükkan_adı" />
+                <ScalarProperty Name="dükkan_telno" ColumnName="dükkan_telno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ev_sahibi">
+            <EntityTypeMapping TypeName="emlakModel.ev_sahibi">
+              <MappingFragment StoreEntitySet="ev_sahibi">
+                <ScalarProperty Name="ev_sahibi_id" ColumnName="ev_sahibi_id" />
+                <ScalarProperty Name="ad" ColumnName="ad" />
+                <ScalarProperty Name="soyad" ColumnName="soyad" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kira_kayıt">
+            <EntityTypeMapping TypeName="emlakModel.kira_kayıt">
+              <MappingFragment StoreEntitySet="kira_kayıt">
+                <ScalarProperty Name="kira_kayıt_id" ColumnName="kira_kayıt_id" />
+                <ScalarProperty Name="ev_sahibi_id" ColumnName="ev_sahibi_id" />
+                <ScalarProperty Name="kiralık_ev_id" ColumnName="kiralık_ev_id" />
+                <ScalarProperty Name="temsilci_id" ColumnName="temsilci_id" />
+                <ScalarProperty Name="kiracı_id" ColumnName="kiracı_id" />
+                <ScalarProperty Name="kiralama_fiyatı" ColumnName="kiralama_fiyatı" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kiracı">
+            <EntityTypeMapping TypeName="emlakModel.kiracı">
+              <MappingFragment StoreEntitySet="kiracı">
+                <ScalarProperty Name="kiracı_id" ColumnName="kiracı_id" />
+                <ScalarProperty Name="ad" ColumnName="ad" />
+                <ScalarProperty Name="soyad" ColumnName="soyad" />
+                <ScalarProperty Name="telno" ColumnName="telno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kiralık_ev">
+            <EntityTypeMapping TypeName="emlakModel.kiralık_ev">
+              <MappingFragment StoreEntitySet="kiralık_ev">
+                <ScalarProperty Name="kiralık_ev_id" ColumnName="kiralık_ev_id" />
+                <ScalarProperty Name="sokak" ColumnName="sokak" />
+                <ScalarProperty Name="kapı_no" ColumnName="kapı_no" />
+                <ScalarProperty Name="ada_parsel" ColumnName="ada_parsel" />
+                <ScalarProperty Name="kat_sayısı" ColumnName="kat_sayısı" />
+                <ScalarProperty Name="bulunduğu_kat" ColumnName="bulunduğu_kat" />
+                <ScalarProperty Name="oda_sayısı" ColumnName="oda_sayısı" />
+                <ScalarProperty Name="salon_sayısı" ColumnName="salon_sayısı" />
+                <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+                <ScalarProperty Name="kiracı_id" ColumnName="kiracı_id" />
+                <ScalarProperty Name="ev_sahibi_id" ColumnName="ev_sahibi_id" />
+                <ScalarProperty Name="mahalle_id" ColumnName="mahalle_id" />
+                <ScalarProperty Name="temsilci_id" ColumnName="temsilci_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mahalle">
+            <EntityTypeMapping TypeName="emlakModel.mahalle">
+              <MappingFragment StoreEntitySet="mahalle">
+                <ScalarProperty Name="mahalle_id" ColumnName="mahalle_id" />
+                <ScalarProperty Name="mahalle_ad" ColumnName="mahalle_ad" />
+                <ScalarProperty Name="şehir_id" ColumnName="şehir_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="satılık_ev">
+            <EntityTypeMapping TypeName="emlakModel.satılık_ev">
+              <MappingFragment StoreEntitySet="satılık_ev">
+                <ScalarProperty Name="satılık_ev_id" ColumnName="satılık_ev_id" />
+                <ScalarProperty Name="sokak" ColumnName="sokak" />
+                <ScalarProperty Name="kapı_no" ColumnName="kapı_no" />
+                <ScalarProperty Name="ada_parsel" ColumnName="ada_parsel" />
+                <ScalarProperty Name="kat_sayısı" ColumnName="kat_sayısı" />
+                <ScalarProperty Name="bulunduğu_kat" ColumnName="bulunduğu_kat" />
+                <ScalarProperty Name="oda_sayısı" ColumnName="oda_sayısı" />
+                <ScalarProperty Name="salon_sayısı" ColumnName="salon_sayısı" />
+                <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+                <ScalarProperty Name="ev_sahibi_id" ColumnName="ev_sahibi_id" />
+                <ScalarProperty Name="mahalle_id" ColumnName="mahalle_id" />
+                <ScalarProperty Name="temsilci_id" ColumnName="temsilci_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="satış_kaydı">
+            <EntityTypeMapping TypeName="emlakModel.satış_kaydı">
+              <MappingFragment StoreEntitySet="satış_kaydı">
+                <ScalarProperty Name="kayıt_id" ColumnName="kayıt_id" />
+                <ScalarProperty Name="ev_sahibi_id" ColumnName="ev_sahibi_id" />
+                <ScalarProperty Name="temsilci_id" ColumnName="temsilci_id" />
+                <ScalarProperty Name="satılık_ev_id" ColumnName="satılık_ev_id" />
+                <ScalarProperty Name="yeni_ev_sahibi_id" ColumnName="yeni_ev_sahibi_id" />
+                <ScalarProperty Name="satış_fiyatı" ColumnName="satış_fiyatı" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="emlakModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="şehir">
+            <EntityTypeMapping TypeName="emlakModel.şehir">
+              <MappingFragment StoreEntitySet="şehir">
+                <ScalarProperty Name="şehir_id" ColumnName="şehir_id" />
+                <ScalarProperty Name="şehir_ismi" ColumnName="şehir_ismi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="temsilci">
+            <EntityTypeMapping TypeName="emlakModel.temsilci">
+              <MappingFragment StoreEntitySet="temsilci">
+                <ScalarProperty Name="temsilci_id" ColumnName="temsilci_id" />
+                <ScalarProperty Name="ad" ColumnName="ad" />
+                <ScalarProperty Name="soyad" ColumnName="soyad" />
+                <ScalarProperty Name="tel_no" ColumnName="tel_no" />
+                <ScalarProperty Name="dükkan_id" ColumnName="dükkan_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="yeni_ev_sahibi">
+            <EntityTypeMapping TypeName="emlakModel.yeni_ev_sahibi">
+              <MappingFragment StoreEntitySet="yeni_ev_sahibi">
+                <ScalarProperty Name="yeni_ev_sahibi_id" ColumnName="yeni_ev_sahibi_id" />
+                <ScalarProperty Name="adı" ColumnName="adı" />
+                <ScalarProperty Name="soyadı" ColumnName="soyadı" />
+                <ScalarProperty Name="telno" ColumnName="telno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

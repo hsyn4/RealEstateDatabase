@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="emlakModelStoreContainer" CdmEntityContainer="emlakEntities">
+    <EntitySetMapping Name="dükkan">
+      <EntityTypeMapping TypeName="emlakModel.dükkan">
+        <MappingFragment StoreEntitySet="dükkan">
+          <ScalarProperty Name="dükkan_id" ColumnName="dükkan_id" />
+          <ScalarProperty Name="dükkan_adı" ColumnName="dükkan_adı" />
+          <ScalarProperty Name="dükkan_telno" ColumnName="dükkan_telno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ev_sahibi">
+      <EntityTypeMapping TypeName="emlakModel.ev_sahibi">
+        <MappingFragment StoreEntitySet="ev_sahibi">
+          <ScalarProperty Name="ev_sahibi_id" ColumnName="ev_sahibi_id" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="soyad" ColumnName="soyad" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kira_kayıt">
+      <EntityTypeMapping TypeName="emlakModel.kira_kayıt">
+        <MappingFragment StoreEntitySet="kira_kayıt">
+          <ScalarProperty Name="kira_kayıt_id" ColumnName="kira_kayıt_id" />
+          <ScalarProperty Name="ev_sahibi_id" ColumnName="ev_sahibi_id" />
+          <ScalarProperty Name="kiralık_ev_id" ColumnName="kiralık_ev_id" />
+          <ScalarProperty Name="temsilci_id" ColumnName="temsilci_id" />
+          <ScalarProperty Name="kiracı_id" ColumnName="kiracı_id" />
+          <ScalarProperty Name="kiralama_fiyatı" ColumnName="kiralama_fiyatı" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kiracı">
+      <EntityTypeMapping TypeName="emlakModel.kiracı">
+        <MappingFragment StoreEntitySet="kiracı">
+          <ScalarProperty Name="kiracı_id" ColumnName="kiracı_id" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="soyad" ColumnName="soyad" />
+          <ScalarProperty Name="telno" ColumnName="telno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kiralık_ev">
+      <EntityTypeMapping TypeName="emlakModel.kiralık_ev">
+        <MappingFragment StoreEntitySet="kiralık_ev">
+          <ScalarProperty Name="kiralık_ev_id" ColumnName="kiralık_ev_id" />
+          <ScalarProperty Name="sokak" ColumnName="sokak" />
+          <ScalarProperty Name="kapı_no" ColumnName="kapı_no" />
+          <ScalarProperty Name="ada_parsel" ColumnName="ada_parsel" />
+          <ScalarProperty Name="kat_sayısı" ColumnName="kat_sayısı" />
+          <ScalarProperty Name="bulunduğu_kat" ColumnName="bulunduğu_kat" />
+          <ScalarProperty Name="oda_sayısı" ColumnName="oda_sayısı" />
+          <ScalarProperty Name="salon_sayısı" ColumnName="salon_sayısı" />
+          <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+          <ScalarProperty Name="kiracı_id" ColumnName="kiracı_id" />
+          <ScalarProperty Name="ev_sahibi_id" ColumnName="ev_sahibi_id" />
+          <ScalarProperty Name="mahalle_id" ColumnName="mahalle_id" />
+          <ScalarProperty Name="temsilci_id" ColumnName="temsilci_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mahalle">
+      <EntityTypeMapping TypeName="emlakModel.mahalle">
+        <MappingFragment StoreEntitySet="mahalle">
+          <ScalarProperty Name="mahalle_id" ColumnName="mahalle_id" />
+          <ScalarProperty Name="mahalle_ad" ColumnName="mahalle_ad" />
+          <ScalarProperty Name="şehir_id" ColumnName="şehir_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="satılık_ev">
+      <EntityTypeMapping TypeName="emlakModel.satılık_ev">
+        <MappingFragment StoreEntitySet="satılık_ev">
+          <ScalarProperty Name="satılık_ev_id" ColumnName="satılık_ev_id" />
+          <ScalarProperty Name="sokak" ColumnName="sokak" />
+          <ScalarProperty Name="kapı_no" ColumnName="kapı_no" />
+          <ScalarProperty Name="ada_parsel" ColumnName="ada_parsel" />
+          <ScalarProperty Name="kat_sayısı" ColumnName="kat_sayısı" />
+          <ScalarProperty Name="bulunduğu_kat" ColumnName="bulunduğu_kat" />
+          <ScalarProperty Name="oda_sayısı" ColumnName="oda_sayısı" />
+          <ScalarProperty Name="salon_sayısı" ColumnName="salon_sayısı" />
+          <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+          <ScalarProperty Name="ev_sahibi_id" ColumnName="ev_sahibi_id" />
+          <ScalarProperty Name="mahalle_id" ColumnName="mahalle_id" />
+          <ScalarProperty Name="temsilci_id" ColumnName="temsilci_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="satış_kaydı">
+      <EntityTypeMapping TypeName="emlakModel.satış_kaydı">
+        <MappingFragment StoreEntitySet="satış_kaydı">
+          <ScalarProperty Name="kayıt_id" ColumnName="kayıt_id" />
+          <ScalarProperty Name="ev_sahibi_id" ColumnName="ev_sahibi_id" />
+          <ScalarProperty Name="temsilci_id" ColumnName="temsilci_id" />
+          <ScalarProperty Name="satılık_ev_id" ColumnName="satılık_ev_id" />
+          <ScalarProperty Name="yeni_ev_sahibi_id" ColumnName="yeni_ev_sahibi_id" />
+          <ScalarProperty Name="satış_fiyatı" ColumnName="satış_fiyatı" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="emlakModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="şehir">
+      <EntityTypeMapping TypeName="emlakModel.şehir">
+        <MappingFragment StoreEntitySet="şehir">
+          <ScalarProperty Name="şehir_id" ColumnName="şehir_id" />
+          <ScalarProperty Name="şehir_ismi" ColumnName="şehir_ismi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="temsilci">
+      <EntityTypeMapping TypeName="emlakModel.temsilci">
+        <MappingFragment StoreEntitySet="temsilci">
+          <ScalarProperty Name="temsilci_id" ColumnName="temsilci_id" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="soyad" ColumnName="soyad" />
+          <ScalarProperty Name="tel_no" ColumnName="tel_no" />
+          <ScalarProperty Name="dükkan_id" ColumnName="dükkan_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="yeni_ev_sahibi">
+      <EntityTypeMapping TypeName="emlakModel.yeni_ev_sahibi">
+        <MappingFragment StoreEntitySet="yeni_ev_sahibi">
+          <ScalarProperty Name="yeni_ev_sahibi_id" ColumnName="yeni_ev_sahibi_id" />
+          <ScalarProperty Name="adı" ColumnName="adı" />
+          <ScalarProperty Name="soyadı" ColumnName="soyadı" />
+          <ScalarProperty Name="telno" ColumnName="telno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
